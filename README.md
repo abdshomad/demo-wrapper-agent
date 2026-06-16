@@ -14,7 +14,8 @@ To ensure smooth and reliable development, all AI agents operating in this works
 2. **Docker & Port Management**: Use `docker-compose.yml` and store the app's `PORT` configuration in `.env`.
 3. **Management Scripts**: Implement stack control scripts (`install.sh`, `start.sh`, `stop.sh`, `restart.sh`, and `monitor.sh`) to run all application processes in the background, adapting to Linux, Windows, and macOS.
 4. **E2E Testing**: Save E2E test screenshots organized using a numbered module, function, and step hierarchy in the `/screenshots/` folder.
-5. **Read the Full Guidelines**: Refer to the detailed guidelines inside [AGENTS.md](AGENTS.md) before performing any tasks or commits.
+5. **Blocking Issues**: Record blocking issues with numbered filenames in the `/issues/` folder.
+6. **Read the Full Guidelines**: Refer to the detailed guidelines inside [AGENTS.md](AGENTS.md) before performing any tasks or commits.
 
 ---
 

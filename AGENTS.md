@@ -25,3 +25,7 @@ When intentionally testing features:
 2. Save results and screenshots in the `/screenshots/` directory.
 3. Organize output using a numbered directory and filename hierarchy:
    - Structure: `screenshots/<module_number>_<module_name>/<function_number>_<function_name>/<step_number>_<before|after>_<action_name>.png`
+
+## Issue Tracking & Blockers
+
+- **Blocking Issues**: Record all blocking issues in the `/issues/` folder with numbered filenames.
