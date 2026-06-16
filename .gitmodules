@@ -1,0 +1,6 @@
+[submodule "next-methods"]
+	path = next-methods
+	url = https://github.com/abdshomad/next-methods.git
+[submodule "autonomous-coding-agents"]
+	path = autonomous-coding-agents
+	url = https://github.com/abdshomad/autonomous-coding-agents.git
