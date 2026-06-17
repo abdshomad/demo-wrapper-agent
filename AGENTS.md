@@ -60,24 +60,24 @@ When creating, modifying, or extending the user guide or presentation slides:
 
 ### File layout
 
-All guide content lives under the repo root `user-guide/` folder using this nested path pattern:
+All guide content lives under the repo root `user-guides/` folder using this nested path pattern:
 
 ```
-user-guide/{NN}-{module-name}/{NN}-{feature-name}/{NN}-{step-name}/index.tsx
+user-guides/{NN}-{module-name}/{NN}-{feature-name}/
 ```
 
 - `{NN}` = two-digit number (e.g. `01`, `02`)
-- One `index.tsx` per step
+- One feature folder per guide screen; place guide files (e.g. `index.tsx`) inside the feature folder
 
-Example: `user-guide/02-executive-command-center/01-decision-scenario-simulator/01-run-simulation/index.tsx`
+Example: `user-guides/02-executive-command-center/01-decision-scenario-simulator/index.tsx`
 
 ### Scope
 
-All user-guide files belong in the **parent repo root**, never inside git submodule directories. See **Do Not Edit Git Submodules** above. Import shared code via project path aliases (e.g. `@/…`), not deep relative paths into submodule trees.
+All user-guides files belong in the **parent repo root**, never inside git submodule directories. See **Do Not Edit Git Submodules** above. Import shared code via project path aliases (e.g. `@/…`), not deep relative paths into submodule trees.
 
 ### Welcome / feature catalog
 
-The intro step (`user-guide/01-welcome/00-general-overview/00-intro/index.tsx`) must include a searchable feature catalog sourced from `docs/feature-list.md`. Each catalog entry should document:
+The intro screen (`user-guides/01-welcome/00-general-overview/index.tsx`) must include a searchable feature catalog sourced from `docs/feature-list.md`. Each catalog entry should document:
 
 1. **Task ID** — e.g. `Task 8.2`
 2. **Implementation** — technical details under the hood (APIs, models, regex patterns, etc.)
