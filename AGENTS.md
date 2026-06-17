@@ -54,6 +54,51 @@ When intentionally testing features:
 
 - **Blocking Issues**: Record all blocking issues in the `/issues/` folder with numbered filenames.
 
+## User Guide Development Guidelines
+
+When creating, modifying, or extending the user guide or presentation slides:
+
+### File layout
+
+All guide content lives under the repo root `user-guide/` folder using this nested path pattern:
+
+```
+user-guide/{NN}-{module-name}/{NN}-{feature-name}/{NN}-{step-name}/index.tsx
+```
+
+- `{NN}` = two-digit number (e.g. `01`, `02`)
+- One `index.tsx` per step
+
+Example: `user-guide/02-executive-command-center/01-decision-scenario-simulator/01-run-simulation/index.tsx`
+
+### Scope
+
+All user-guide files belong in the **parent repo root**, never inside git submodule directories. See **Do Not Edit Git Submodules** above. Import shared code via project path aliases (e.g. `@/…`), not deep relative paths into submodule trees.
+
+### Welcome / feature catalog
+
+The intro step (`user-guide/01-welcome/00-general-overview/00-intro/index.tsx`) must include a searchable feature catalog sourced from `docs/feature-list.md`. Each catalog entry should document:
+
+1. **Task ID** — e.g. `Task 8.2`
+2. **Implementation** — technical details under the hood (APIs, models, regex patterns, etc.)
+3. **Compliance** — applicable regulations or standards, when relevant
+4. **Impact** — business or performance outcomes
+
+### Content and interaction
+
+1. **Callouts**: Prevent text and hotspot callouts from overlapping; fill them with realistic sample data. Match existing typography guidelines.
+2. **Interactivity**: Prefer interactive simulations, canvas or SVG animations, or dynamic charts (e.g. `framer-motion`, `recharts`) over static text or mockups when demonstrating feature behavior.
+3. **Playback**: Support autoplay with an 8-second advance timer between steps.
+4. **Keyboard navigation**:
+
+| Key | Action |
+|-----|--------|
+| `ArrowRight`, `ArrowDown`, `Space` | Next step |
+| `ArrowLeft`, `ArrowUp` | Previous step |
+| `PageDown` | Next module |
+| `PageUp` | Previous module |
+| `Escape` | Exit guide |
+
 ## Begin
 
 Follow [`next-methods/AGENTS.md`](next-methods/AGENTS.md) § Begin: ask for the project idea, recommend a method, show the menu, and wait.
