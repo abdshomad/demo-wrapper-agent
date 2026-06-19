@@ -23,15 +23,38 @@ This workspace uses two submodule instruction sets. **Read and follow both befor
 
 **Path resolution:** When [`next-methods/AGENTS.md`](next-methods/AGENTS.md) references `autonomous-coding-agents/AGENTS.md`, use the root-level submodule at [`autonomous-coding-agents/AGENTS.md`](autonomous-coding-agents/AGENTS.md) in this workspace.
 
-**Engines (always on):** [`autonomous-coding-agents/AGENTS.md`](autonomous-coding-agents/AGENTS.md) drives `n`/`e`; planning submodules under `next-methods/` (BMAD, Spec Kit, OpenSpec, design.md, Pocock, Karpathy) are invoked per the method chosen in [`next-methods/AGENTS.md`](next-methods/AGENTS.md).
+**Engines (always on):** [`autonomous-coding-agents/AGENTS.md`](autonomous-coding-agents/AGENTS.md) drives `n`/`e`; planning submodules under `next-methods/` (BMAD, Spec Kit, OpenSpec, design.md, Pocock) are invoked per the method chosen in [`next-methods/AGENTS.md`](next-methods/AGENTS.md); implementation follows [`next-methods/ponytail/AGENTS.md`](next-methods/ponytail/AGENTS.md) (minimum code) and [`next-methods/andrej-karpathy-skills/CLAUDE.md`](next-methods/andrej-karpathy-skills/CLAUDE.md) (think first, surgical diffs, verify).
 
 All project artifacts (`plans/`, `docs/`, `_bmad-output/`, etc.) live at **this repo root**, not inside submodule directories.
+
+## First Step — Stack Management Scripts
+
+> [!IMPORTANT]
+> **Before anything else** — planning, specs, UI, features, or enhancements — create and verify stack management scripts at the **repo root**. Do not proceed to other work until these exist and run.
+
+Provide **both** shell and Windows batch variants:
+
+| Action | Linux / macOS | Windows |
+|--------|---------------|---------|
+| Install dependencies | `install.sh` | `install.bat` |
+| Start the stack | `start.sh` | `start.bat` |
+| Stop the stack | `stop.sh` | `stop.bat` |
+| Monitor status / logs | `monitor.sh` | `monitor.bat` |
+
+Script requirements:
+
+- Keep each script as short as possible (one-liners where feasible).
+- All application processes started by these scripts must run in the **background**.
+- Scripts must work on Linux, macOS, and Windows (use `.sh` on Unix-like systems, `.bat` on Windows).
+- After creating the scripts, run `install` → `start` → `monitor` once to confirm the stack boots before moving on.
+
+Only after this first step is complete should you follow the Agent Workflow, NEXT-Method states, or enhancement ticks below.
 
 ## Repository Configuration & Management
 
 - **Docker Compose**: Provide a `docker-compose.yml` to run the application.
 - **Port Management**: Store the port info in a `.env` file (e.g., `PORT=3000`).
-- **Management Scripts**: Implement `install.sh`, `start.sh`, `stop.sh`, `restart.sh`, and `monitor.sh` (as one-liners where possible) for stack management. All application processes and scripts must run in the background. The scripts should adapt to Linux, Windows, and macOS environments.
+- **Management Scripts**: See **First Step — Stack Management Scripts** above. Optionally add `restart.sh` / `restart.bat` that delegates to stop then start.
 
 ## Screen & Navigation Guidelines
 
@@ -101,4 +124,5 @@ The intro screen (`user-guides/01-welcome/00-general-overview/index.tsx`) must i
 
 ## Begin
 
-Follow [`next-methods/AGENTS.md`](next-methods/AGENTS.md) § Begin: ask for the project idea, recommend a method, show the menu, and wait.
+1. If stack management scripts (`install`, `start`, `stop`, `monitor` — `.sh` and `.bat`) are missing, create them first per **First Step — Stack Management Scripts** above.
+2. Then follow [`next-methods/AGENTS.md`](next-methods/AGENTS.md) § Begin: ask for the project idea, recommend a method, show the menu, and wait.
